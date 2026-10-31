@@ -23,19 +23,39 @@ class Producto {
   }
 }
 
+/**
+ * Representa el carrito de compras de un usuario.
+ */
 class Carrito {
+  /**
+   * Crea una instancia de Carrito con una lista vacía de productos.
+   */
   constructor() {
+    /**
+     * @type {Producto[]} Array de productos almacenados en el carrito.
+     */
     this.productos = [];
   }
 
+  /**
+   * Agrega un nuevo producto a la lista del carrito.
+   * @param {Producto} producto - Objeto de tipo Producto a añadir al carrito.
+   */
   agregarProducto(producto) {
     this.productos.push(producto);
   }
 
+  /**
+   * Calcula el total del carrito sumando los subtotales de todos los productos.
+   * @returns {number} Total del carrito.
+   */
   calcularTotalCarrito() {
     return this.productos.reduce((total, producto) => total + producto.calcularTotal(), 0);
   }
 
+  /**
+   * Elimina todos los productos agregados al carrito.
+   */
   vaciarCarrito() {
     this.productos = [];
   }

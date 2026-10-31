@@ -1,10 +1,23 @@
+/**
+ * Representa un producto en el catálogo de la tienda.
+ */
 class Producto {
+  /**
+   * Crea una instancia de Producto
+   * @param {string} nombre - Nombre descriptivo del producto.
+   * @param {number} precio - Precio unitario del producto en euros.
+   * @param {number} cantidad - Cantidad inicial del producto.
+   */
   constructor(nombre, precio, cantidad) {
     this.nombre = nombre;
     this.precio = precio;
     this.cantidad = cantidad;
   }
 
+  /**
+   * Calcula el subtotal multiplicando precio por cantidad.
+   * @returns {number} Subtotal del producto.
+   */
   calcularTotal() {
     return this.precio * this.cantidad;
   }

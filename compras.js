@@ -61,17 +61,33 @@ class Carrito {
   }
 }
 
+/**
+ * Representa a un usuario registrado en el sistema.
+ */
 class Usuario {
+  /**
+   * Crea una instancia de Usuario.
+   * @param {string} nombre - Nombre completo del usuario.
+   * @param {string} correo - Correo electrónico de contacto del usuario.
+   */
   constructor(nombre, correo) {
     this.nombre = nombre;
     this.correo = correo;
+    /** @type {Carrito} Instancia del carrito asociada al usuario */
     this.carrito = new Carrito();
   }
 
+  /**
+   * Añade un producto al carrito personal del usuario.
+   * @param {Producto} producto - Producto a incluir en el carrito.
+   */
   agregarProductoAlCarrito(producto) {
     this.carrito.agregarProducto(producto);
   }
 
+  /**
+   * Finaliza el proceso de compra, muestra el importe total por consola y vacía el carrito.
+   */
   finalizarCompra() {
     const total = this.carrito.calcularTotalCarrito();
     console.log(`Usuario ${this.nombre} ha realizado una compra por un total de ${total}€`);
@@ -79,10 +95,15 @@ class Usuario {
   }
 }
 
+// --- Instanciación y flujo de ejemplo ---
 
+/** @type {Producto} Instancia de producto: Laptop */
 const producto1 = new Producto("Laptop", 1200, 1);
+
+/** @type {Producto} Instancia de producto: Mouse */
 const producto2 = new Producto("Mouse", 20, 2);
 
+/** @type {Producto} Instancia de usuario principal */
 const usuario = new Usuario("Juan", "juan@example.com");
 
 usuario.agregarProductoAlCarrito(producto1);
